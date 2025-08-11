@@ -14,3 +14,7 @@ Then run
 ```cmd
 py server.py
 ```
+
+**Be sure to disable Verify Certificates on Dolphin!**
+
+**DOES NOT WORK ON REAL HARDWARE YET!**
