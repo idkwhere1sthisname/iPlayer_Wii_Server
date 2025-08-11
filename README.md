@@ -18,3 +18,9 @@ py server.py
 **Be sure to disable Verify Certificates on Dolphin!**
 
 **DOES NOT WORK ON REAL HARDWARE YET!**
+
+# Credits
+
+idkwh: Server and Patching
+
+YourTooSlow: WiiiPlayer.swf recreation
