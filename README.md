@@ -45,4 +45,10 @@ openssl x509 -req -in client.csr -CA ca.pem -CAkey ca.key -set_serial 0x01A5 -ou
 
 idkwh: Server and Patching
 
-YourTooSlow: WiiiPlayer.swf recreation
+YourTooSlow: WiiiPlayer.swf recreation (Work in progress)
+
+# Progress on Wiiiplayer.swf
+
+- Home page UI is semi-complete, video thumbnails load and scrolling through videos with the arrows also work. Exit button redirects to the Wii Menu
+
+- Other pages and features (like playing videos and almost every button) **do not work at this time**.
