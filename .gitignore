@@ -4,9 +4,7 @@ misc/**
 old/**
 wad/**
 ssl/**
-static/**
 .vs/**
 .vscode/**
-*.wad
 *.html
 *.fla
