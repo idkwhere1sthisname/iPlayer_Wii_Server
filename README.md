@@ -47,7 +47,7 @@ idkwh: Server and Patching
 
 YourTooSlow: WiiiPlayer.swf recreation (Work in progress)
 
-# Progress on Wiiiplayer.swf
+# Progress on WiiiPlayer.swf
 
 - Home page UI is semi-complete, video thumbnails load and scrolling through videos with the arrows also work. Exit button redirects to the Wii Menu
 

@@ -1,6 +1,7 @@
 # WiiiPlayer SERVER
 
 from __future__ import print_function
+import requests as reqs
 from flask import Flask, Response, Request, redirect, send_from_directory, send_file, request
 import os
 import dotenv as env
@@ -48,15 +49,34 @@ def WiiiPlayer03():
 def WiiiPlayer04():
     return send_from_directory("static", WII_IPLAYER, mimetype="application/x-shockwave-flash")
 
-@app.route("/proxy.asp")
+@app.route("/proxy.asp", methods=["GET", "POST"]) # used?
 def WiiiPlayerProxy():
-    return "", 403 # to do
+    url = request.args.get("url")
+    key = request.args.get("key")
+
+    if not url:
+        return "Bad request", 400
+    
+    if not key or key != "nstnstnst": # constant
+        return "Unauthorized", 403
+    
+    try:
+        res = reqs.get(url, stream=True)
+
+        return Response(
+            res.iter_content(chunk_size=1024),
+            status=res.status_code,
+            content_type=res.headers.get("Content-Type")
+        )
+    except reqs.RequestException as e:
+        return f"Error trying to fetch URI: {e}", 500
+
 
 @app.route("/fonts.swf")
 def iPlayerFonts():
     return send_from_directory("static", "fonts.swf", mimetype="application/x-shockwave-flash")
 
-@app.route("/crossdomain.xml") # cant preload
+@app.route("/crossdomain.xml")
 def crossdomain():
     policy = """<?xml version="1.0"?>
 <!DOCTYPE cross-domain-policy SYSTEM "http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd">
