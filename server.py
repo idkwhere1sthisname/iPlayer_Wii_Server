@@ -56,13 +56,18 @@ def WiiiPlayerProxy():
 def iPlayerFonts():
     return send_from_directory("static", "fonts.swf", mimetype="application/x-shockwave-flash")
 
-@app.route("/crossdomain.xml")
+@app.route("/crossdomain.xml") # cant preload
 def crossdomain():
     policy = """<?xml version="1.0"?>
+<!DOCTYPE cross-domain-policy SYSTEM "http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd">
 <cross-domain-policy>
-    <allow-access-from domain="*" />
+   <allow-access-from domain="*"/>
 </cross-domain-policy>"""
     return Response(policy, mimetype="application/xml")
+
+@app.route("/thumbnails.xml")
+def thumbnails_onserver():
+    return send_file("thumbnails.xml")
 
 @app.route("/")
 def index():
