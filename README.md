@@ -37,7 +37,7 @@ openssl x509 -req -in GTEGI.csr -CA ca.pem -CAkey ca.key -set_serial 0x01A5 -out
 openssl x509 -req -in client.csr -CA ca.pem -CAkey ca.key -set_serial 0x01A5 -out GTEGI.cer -days 3650 -md5
 ```
 
-**Be sure to disable Verify Certificates on Dolphin!**
+**Be sure to disable Verify Certificates on Dolphin, as the internal channel CA has not been found yet.**
 
 **DOES NOT WORK ON REAL HARDWARE YET!**
 
