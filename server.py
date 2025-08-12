@@ -52,10 +52,6 @@ def WiiiPlayer04():
 def WiiiPlayerProxy():
     return "", 403 # to do
 
-@app.route("/game.swf")
-def test01():
-    return send_from_directory("static", "game.swf")
-
 @app.route("/crossdomain.xml")
 def crossdomain():
     policy = """<?xml version="1.0"?>
