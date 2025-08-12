@@ -8,3 +8,5 @@ static/**
 .vs/**
 .vscode/**
 *.wad
+*.html
+*.fla

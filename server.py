@@ -38,19 +38,23 @@ def WiiiPlayer01():
 
 @app.route("/wiiiplayer")
 def WiiiPlayer02():
-    return send_from_directory("static", WII_IPLAYER)
+    return send_from_directory("static", WII_IPLAYER, mimetype="application/x-shockwave-flash")
 
 @app.route("/WiiiPlayer")
 def WiiiPlayer03():
-    return send_from_directory("static", WII_IPLAYER)
+    return send_from_directory("static", WII_IPLAYER, mimetype="application/x-shockwave-flash")
 
 @app.route("/wiiiplayer.swf")
 def WiiiPlayer04():
-    return send_from_directory("static", WII_IPLAYER)
+    return send_from_directory("static", WII_IPLAYER, mimetype="application/x-shockwave-flash")
 
 @app.route("/proxy.asp")
 def WiiiPlayerProxy():
     return "", 403 # to do
+
+@app.route("/fonts.swf")
+def iPlayerFonts():
+    return send_from_directory("static", "fonts.swf", mimetype="application/x-shockwave-flash")
 
 @app.route("/crossdomain.xml")
 def crossdomain():
