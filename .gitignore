@@ -1,0 +1,10 @@
+backup/**
+CA/**
+misc/**
+old/**
+wad/**
+ssl/**
+static/**
+.vs/**
+.vscode/**
+*.wad
