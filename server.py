@@ -69,10 +69,6 @@ def crossdomain():
 def thumbnails_onserver():
     return send_file("thumbnails.xml")
 
-@app.route("/")
-def index():
-    return "<title>Server is running</title>", 200
-
 if __name__ == '__main__':
     WSGIRequestHandler.protocol_version = "HTTP/1.1"
 
