@@ -4,19 +4,20 @@ from __future__ import print_function
 import requests as reqs
 from flask import Flask, Response, Request, redirect, send_from_directory, send_file, request
 import os
-import dotenv as env
 import ssl
 from wsgiref.simple_server import WSGIRequestHandler
+import xml.etree.ElementTree as ET
 
-env.load_dotenv()
+tree = ET.parse("config.xml")
+root = tree.getroot()
 
-IPLAYER_HOST = os.getenv("HOST")
-IPLAYER_STATUS = os.getenv("IPLAYER_STATUS") # disabled, maintenance, or null
-IPLAYER_VERSION_REQUIRED = os.getenv("IPLAYER_VERREQ") # Wii 1.0.12
-IPLAYER_PORT = os.getenv("IPLAYER_PORT") # int
-STATUS_MSG = os.getenv("STATUSMSG") # anything or null
-PRELOAD_SWF = os.getenv("PRELOAD_SWF") # csv, w/o .swf, SHOULD ALWAYS INCLUDE MAIN_APP
-MAIN_APP = os.getenv("MAIN_SWF") # w/o .swf
+IPLAYER_HOST = root.find("host").text
+IPLAYER_STATUS = root.find("status").text
+IPLAYER_VERSION_REQUIRED = root.find("version_required").text
+IPLAYER_PORT = root.find("port").text
+STATUS_MSG = root.find("status_message").text
+PRELOAD_SWF = root.find("preload_swf").text
+MAIN_APP = root.find("main_swf").text
 
 app = Flask(__name__)
 WII_IPLAYER = MAIN_APP+".swf"
