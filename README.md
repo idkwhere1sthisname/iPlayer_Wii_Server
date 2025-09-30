@@ -35,6 +35,10 @@ Wii.System.WiiSystem.addUserNameMapping("{yourdomain}");
 
 Repack 00000002.app and the WAD
 
+Patch the WAD with RiiConnect24's Wiimmfi Patcher.
+
+**Works on real hardware**
+
 # Credits
 
 idkwh: Server and Patching
