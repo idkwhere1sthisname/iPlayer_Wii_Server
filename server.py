@@ -35,19 +35,7 @@ def versionCheckFile():
     return Response(VERSION_CONTENTS, mimetype="application/x-www-form-urlencoded") # can also be text/plain, but according to adobe docs, it should be application/x-www-form-urlencoded
 
 @app.route("/WiiiPlayer.swf")
-def WiiiPlayer01():
-    return send_from_directory("static", WII_IPLAYER, mimetype="application/x-shockwave-flash")
-
-@app.route("/wiiiplayer")
-def WiiiPlayer02():
-    return send_from_directory("static", WII_IPLAYER, mimetype="application/x-shockwave-flash")
-
-@app.route("/WiiiPlayer")
-def WiiiPlayer03():
-    return send_from_directory("static", WII_IPLAYER, mimetype="application/x-shockwave-flash")
-
-@app.route("/wiiiplayer.swf")
-def WiiiPlayer04():
+def WiiiPlayer():
     return send_from_directory("static", WII_IPLAYER, mimetype="application/x-shockwave-flash")
 
 @app.route("/proxy.asp", methods=["GET", "POST"]) # used?
@@ -104,4 +92,5 @@ if __name__ == '__main__':
     ctx.set_ciphers("ALL:@SECLEVEL=0")
 
     print(f"iPlayer Config:\nPreloading: {PRELOAD_SWF}\nStatus Message: {STATUS_MSG}\nRequired version: {IPLAYER_VERSION_REQUIRED}\nMain SWF: {WII_IPLAYER}")
+
     app.run(host=IPLAYER_HOST, port=IPLAYER_PORT, debug=True, ssl_context=ctx)
