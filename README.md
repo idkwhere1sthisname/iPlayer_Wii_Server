@@ -15,31 +15,25 @@ Then run
 py server.py
 ```
 
-# Certificates
+# Setup
+**No HTTPS is required.**
 
-To create a compatible cert, use these commands, you must have OpenSSL installed
+Get a v256 version of the BBC iPlayer WAD
 
-```bash
-# Certificate Authority (CA)
-openssl req -x509 -newkey rsa:2048 -keyout ca.key -out ca.pem -days 3650 -nodes -subj "/CN=idkPlayer/O=idkPlayer"
-openssl x509 -outform der -in ca.pem -out ca.der
+Unpack the WAD using WADMii
 
-# Server Certificate
-openssl genrsa -out server.key 2048
-openssl req -new -key server.key -out server.csr
-openssl x509 -req -in server.csr -CA ca.pem -CAkey ca.key -CAcreateserial -out server.crt -days 365 -sha256
-openssl x509 -in server.crt -out server.pem -outform PEM
+Unpack 000000002.app using U8Mii
 
-# Certificate for 000000002.app (unfortunately insecure, RSA:1024+md5)
-openssl genrsa -out GTEGI.key 1024
-openssl req -new -key GTEGI.key -out GTEGI.csr -subj "/C=IT/O=idkPlayer/CN=127.0.0.1"
-openssl x509 -req -in GTEGI.csr -CA ca.pem -CAkey ca.key -set_serial 0x01A5 -out GTEGI.pem -days 3650 -md5
-openssl x509 -req -in client.csr -CA ca.pem -CAkey ca.key -set_serial 0x01A5 -out GTEGI.cer -days 3650 -md5
+Modify the content_domain in /config/config.common.pcf to your domain
+
+Open /trusted/startup.swf with JPEXS, go to scripts/frame2/DoAction\[6\] and add these 2 lines:
+
+```as
+Wii.System.WiiSystem.addCAMapping("{yourdomain}",1);
+Wii.System.WiiSystem.addUserNameMapping("{yourdomain}");
 ```
 
-**Be sure to disable Verify Certificates on Dolphin, as the internal channel CA has not been found yet.**
-
-**DOES NOT WORK ON REAL HARDWARE YET!**
+Repack 00000002.app and the WAD
 
 # Credits
 
