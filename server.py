@@ -81,16 +81,6 @@ def thumbnails_onserver():
 if __name__ == '__main__':
     WSGIRequestHandler.protocol_version = "HTTP/1.1"
 
-    ctx = ssl.SSLContext(ssl.PROTOCOL_TLSv1)
-
-    try:
-        ctx.load_cert_chain(certfile="ssl/server.pem", keyfile="ssl/server.key")
-    except ssl.SSLError as e:
-        print(f"SSL ERROR!\n{e}")
-        exit()
-    
-    ctx.set_ciphers("ALL:@SECLEVEL=0")
-
     print(f"iPlayer Config:\nPreloading: {PRELOAD_SWF}\nStatus Message: {STATUS_MSG}\nRequired version: {IPLAYER_VERSION_REQUIRED}\nMain SWF: {WII_IPLAYER}")
 
-    app.run(host=IPLAYER_HOST, port=IPLAYER_PORT, debug=True, ssl_context=ctx)
+    app.run(host=IPLAYER_HOST, port=IPLAYER_PORT, debug=True)
