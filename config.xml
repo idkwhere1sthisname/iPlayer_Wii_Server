@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <config>
     <status>active</status> <!-- iPlayer status, can be maintenance, disabled or null -->
-    <port>443</port> <!-- Server port -->
+    <port>80</port> <!-- Server port -->
     <version_required>Wii 1.0.12</version_required> <!-- iPlayer's required version -->
     <status_message>NONE</status_message> <!-- Status message (shows if status is maintenance or disabled) -->
     <host>127.0.0.1</host> <!-- Server host -->
