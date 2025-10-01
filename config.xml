@@ -5,6 +5,6 @@
     <version_required>Wii 1.0.12</version_required> <!-- iPlayer's required version -->
     <status_message>NONE</status_message> <!-- Status message (shows if status is maintenance or disabled) -->
     <host>127.0.0.1</host> <!-- Server host -->
-    <preload_swf>WiiiPlayer,fonts</preload_swf> <!-- SWFs to preload, should include WiiiPlayer -->
+    <preload_swf>fonts</preload_swf> <!-- SWFs to preload, should NOT include WiiiPlayer -->
     <main_swf>WiiiPlayer</main_swf> <!-- Main swf file, should always be WiiiPlayer -->
 </config>
