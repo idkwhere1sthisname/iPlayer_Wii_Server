@@ -6,6 +6,10 @@ Custom server for the BBC iPlayer for the Wii
 
 A prepatched and hosted WAD is available [here](https://stuff.idkwh.ct8.pl/other/BBC%20iPlayer%20Revival%20(Europe).wad) (Europe only)
 
+<div align="right">
+    <img src="readmeimages/preview_1.png" align="center" width="223" height="159" />
+</div>
+
 **~~If the Wii Shop says an update is available for the iPlayer, DO <u>NOT</u> UPDATE! It will overwrite the patch~~** The iPlayer version was changed to the latest `(v768)`, the Wii Shop Channel cannot update the WAD.
 
 ## Self hosting (optional)
