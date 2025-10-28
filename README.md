@@ -28,7 +28,7 @@ Then run
 py server.py
 ```
 
-**No HTTPS is required.**
+**HTTPS is not required.**
 
 Get a v256 version of the BBC iPlayer WAD
 
