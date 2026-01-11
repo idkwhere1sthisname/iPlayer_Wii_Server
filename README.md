@@ -11,7 +11,7 @@ A prepatched and hosted WAD is available below:
 **~~If the Wii Shop says an update is available for the iPlayer, DO <u>NOT</u> UPDATE! It will overwrite the patch~~** The iPlayer version was changed to the latest `(v768)`, the Wii Shop Channel cannot update the WAD.
 
 <div align="center">
-    <img src="readmeimages/preview_1.png" align="center" width="446" height="318" />
+    <img src="https://img.idkwh.ct8.pl/iPlayer_Wii_Server/preview_1.png" align="center" width="446" height="318" />
 </div>
 
 ## Self hosting (optional)
