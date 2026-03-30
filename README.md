@@ -34,7 +34,7 @@ Get a v256 version of the BBC iPlayer WAD
 
 Unpack the WAD using WADMii
 
-Unpack 000000002.app using U8Mii
+Unpack `00000002.app` using U8Mii
 
 Modify the content_domain in /config/config.common.pcf to your domain
 
@@ -45,7 +45,7 @@ Wii.System.WiiSystem.addCAMapping("{yourdomain}",1);
 Wii.System.WiiSystem.addUserNameMapping("{yourdomain}");
 ```
 
-Repack 00000002.app and the WAD
+Repack `00000002.app` and the WAD
 
 Patch the WAD with [RiiConnect24's Wiimmfi Patcher](https://github.com/RiiConnect24/WiiWare-Patcher/).
 
