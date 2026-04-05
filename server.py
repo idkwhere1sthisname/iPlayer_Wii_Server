@@ -5,7 +5,7 @@ import requests as reqs
 from flask import Flask, Response, Request, redirect, send_from_directory, send_file, request
 import os
 import ssl
-from wsgiref.simple_server import WSGIRequestHandler
+from werkzeug.serving import WSGIRequestHandler
 import xml.etree.ElementTree as ET
 
 tree = ET.parse("config.xml")
