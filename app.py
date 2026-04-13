@@ -88,7 +88,9 @@ if __name__ == '__main__':
             ET.SubElement(config,"port").text = port
             ET.SubElement(config,"debug").text = str(debug).lower()
             print("(now is the actual BBC iPlayer channel configuration)")
-            versionRequired = input("Please enter the version required for the BBC iPlayer channel (if unsure, use \"Wii 1.0.12\"): ")
+            versionRequired = input("Please enter the version required for the BBC iPlayer channel (if unsure, press enter and it'll automatically set to \"Wii 1.0.12\"): ")
+            if versionRequired == "":
+                versionRequired = "Wii 1.0.12"
             status = input('Please enter the service status (it can be "maintenance" for a maintenance message, "disabled" for a discontinuation message, or anything for it to load): ')
             mainApplication = input("Please enter the main SWF's filename (it shouldn't end with the .swf extension, it also has to be stored in the static folder): ")
             preloadFiles = input("Please enter a comma-separated list of SWFs the channel should preload (NOTES: every file must not have the .swf extension, do not include the main application, each SWF has to be stored in the static folder, if empty, \"PRELOADME\" is automatically added, as the channel cannot proceed without preloading at least one SWF): ")
