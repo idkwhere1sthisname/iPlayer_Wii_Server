@@ -12,7 +12,7 @@ def loadcfg():
     tree = ET.parse(CONFIG)
     root = tree.getroot()
     IPLAYER_HOST = root.find("host").text
-    IPLAYER_PORT = root.find("port").text or "80"
+    IPLAYER_PORT = root.find("port").text
     IPLAYER_STATUS = root.find("status").text or "active"
     IPLAYER_VERSION_REQUIRED = root.find("versionRequired").text or "Wii 1.0.12"
     STATUS_MSG = root.find("statusMessage").text or ""
@@ -28,7 +28,7 @@ def versiontxt():
         f"mainApplication={MAIN_APP}&"
         f"preloadFiles={PRELOAD_SWF}"
     )
-    return Response(VERSION_CONTENTS,status=200,mimetype="text/plain")
+    return Response(VERSION_CONTENTS,status=200,mimetype="application/x-www-form-urlencoded")
 
 @app.route("/<string:filename>.swf")
 def serveswf(filename):
@@ -91,7 +91,9 @@ if __name__ == '__main__':
             versionRequired = input("Please enter the version required for the BBC iPlayer channel (if unsure, press enter and it'll automatically set to \"Wii 1.0.12\"): ")
             if versionRequired == "":
                 versionRequired = "Wii 1.0.12"
-            status = input('Please enter the service status (it can be "maintenance" for a maintenance message, "disabled" for a discontinuation message, or anything for it to load): ')
+            status = input('Please enter the service status (it can be "maintenance" for a maintenance message, "disabled" for a discontinuation message, or anything for it to load) (default: active): ')
+            if status == "":
+                status = "active"
             mainApplication = input("Please enter the main SWF's filename (it shouldn't end with the .swf extension, it also has to be stored in the static folder): ")
             preloadFiles = input("Please enter a comma-separated list of SWFs the channel should preload (NOTES: every file must not have the .swf extension, do not include the main application, each SWF has to be stored in the static folder, if empty, \"PRELOADME\" is automatically added, as the channel cannot proceed without preloading at least one SWF): ")
             if preloadFiles == "":
