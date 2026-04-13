@@ -10,3 +10,5 @@ ssl/**
 *.fla
 BBC iPlayer Wii Flash UI/**
 *.bak
+config2.xml
+config.xml

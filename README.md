@@ -41,6 +41,7 @@ Modify the content_domain in /config/config.common.pcf to your domain
 Open `/trusted/startup.swf` with JPEXS Free Flash Decompiler, go to `scripts/frame2/DoAction[6]` and add these 2 lines:
 
 ```as
+// replace "{yourdomain}" with your actual domain or IP
 Wii.System.WiiSystem.addCAMapping("{yourdomain}",1);
 Wii.System.WiiSystem.addUserNameMapping("{yourdomain}");
 ```
@@ -53,9 +54,11 @@ This method **works on real hardware**.
 
 ## Credits
 
-[idkwh](https://github.com/idkwhere1sthisname): Server and Patching
+[idkwh](https://github.com/idkwhere1sthisname): Server and old HTTPS patching method
 
 [YourTooSlow](https://github.com/your2slow): WiiiPlayer.swf recreation (Work in progress)
+
+[Tanjirokamado12](https://github.com/Tanjirokamado12): New HTTP patching method
 
 ## Progress on WiiiPlayer.swf
 
@@ -65,4 +68,6 @@ This method **works on real hardware**.
 
 ## Other
 
-If hovering over text is glitched on Dolphin, go to Options->Graphics Settings->Hacks and drag the texture cache slider to the leftmost value (Safe), this will also fix channels like Kirby TV and YouTube (and every Flash-based "VC" inject)
+- If hovering over text is glitched on Dolphin, go to Options->Graphics Settings->Hacks and drag the texture cache slider to the leftmost value (Safe), this will also fix channels like Kirby TV and YouTube (and every Flash-based "VC" inject)
+
+- (dolphin only) If the channel freezes with an invalid write while watching a video, go to Options->Configuration->Advanced, and enable Memory Override, then drag both the MEM1 and MEM2 sliders to the rightmost value, this will increase the MEM1 and MEM2 arenas (other titles might not work with this setting enabled) (doesn't apply for now)
