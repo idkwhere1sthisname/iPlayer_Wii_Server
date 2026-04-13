@@ -70,4 +70,4 @@ This method **works on real hardware**.
 
 - If hovering over text is glitched on Dolphin, go to Options->Graphics Settings->Hacks and drag the texture cache slider to the leftmost value (Safe), this will also fix channels like Kirby TV and YouTube (and every Flash-based "VC" inject)
 
-- (dolphin only) If the channel freezes with an invalid write while watching a video, go to Options->Configuration->Advanced, and enable Memory Override, then drag both the MEM1 and MEM2 sliders to the rightmost value, this will increase the MEM1 and MEM2 arenas (other titles might not work with this setting enabled) (doesn't apply for now)
+- (dolphin only) If the channel freezes with an invalid write while watching a video, go to Options->Configuration->Advanced, and enable Memory Override, then drag both the MEM1 and MEM2 sliders to the rightmost value, this will increase the MEM1 and MEM2 arena sizes (other titles might not work with this setting enabled) (doesn't apply for now)
