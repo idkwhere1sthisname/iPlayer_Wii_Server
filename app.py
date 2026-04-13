@@ -12,9 +12,9 @@ def loadcfg():
     tree = ET.parse(CONFIG)
     root = tree.getroot()
     IPLAYER_HOST = root.find("host").text
-    IPLAYER_PORT = root.find("port").text
-    IPLAYER_STATUS = root.find("status").text
-    IPLAYER_VERSION_REQUIRED = root.find("versionRequired").text
+    IPLAYER_PORT = root.find("port").text or "80"
+    IPLAYER_STATUS = root.find("status").text or "active"
+    IPLAYER_VERSION_REQUIRED = root.find("versionRequired").text or "Wii 1.0.12"
     STATUS_MSG = root.find("statusMessage").text or ""
     PRELOAD_SWF = root.find("preloadFiles").text or ""
     MAIN_APP = root.find("mainApplication").text
