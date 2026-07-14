@@ -6,7 +6,7 @@ Custom server for the BBC iPlayer for the Wii
 
 A prepatched and hosted WAD is available below:
 - [European Version](https://img.idkwh.ct8.pl/iPlayer_Wii_Server/wad/BBC%20iPlayer%20Revival%20(Europe).wad)
-- [American Version](https://img.idkwh.ct8.pl/iPlayer_Wii_Server/wad/BBC%20iPlayer%20Revival%20(USA).wad) (this version hangs when you return to the Wii Menu)
+- [American Version](https://img.idkwh.ct8.pl/iPlayer_Wii_Server/wad/BBC%20iPlayer%20Revival%20(USA).wad) An update is available to the USA WAD, **this fixes every issue with the previous one.** (e.g. not being able to return to the Wii Menu)
 
 **~~If the Wii Shop says an update is available for the iPlayer, DO <u>NOT</u> UPDATE! It will overwrite the patch~~** The iPlayer version was changed to the latest `(v768)`, the Wii Shop Channel cannot update the WAD.
 
@@ -30,15 +30,24 @@ py server.py
 
 **HTTPS is not required.**
 
-Get a v256 version of the BBC iPlayer WAD
+- Get a v256 version of the BBC iPlayer WAD
 
-Unpack the WAD using WADMii
+- Unpack the WAD using WADMii
 
-Unpack `00000002.app` using U8Mii
+- Unpack `00000002.app` using U8Mii
 
-Modify the content_domain in /config/config.common.pcf to your domain
+- Modify `content_domain` in `/config/config.common.pcf` to your domain
 
-Open `/trusted/startup.swf` with JPEXS Free Flash Decompiler, go to `scripts/frame2/DoAction[6]` and add these 2 lines:
+```ini
+####### iPlayer ########
+
+content_domain                  {yourdomain}
+#content_domain                 https://wii-test.nintendo.iplayer.bbc.co.uk/wii-test/tvp/
+#content_domain                 https://wii.nintendo.iplayer.bbc.co.uk/testwiiiplayer/tvp/livetest/
+content_url                     file:///trusted/startup.swf
+```
+
+- Open `/trusted/startup.swf` with JPEXS Free Flash Decompiler, go to `scripts/frame2/DoAction[6]` and add these 2 lines:
 
 ```as
 // replace "{yourdomain}" with your actual domain or IP
@@ -46,9 +55,23 @@ Wii.System.WiiSystem.addCAMapping("{yourdomain}",1);
 Wii.System.WiiSystem.addUserNameMapping("{yourdomain}");
 ```
 
-Repack `00000002.app` and the WAD
+- Repack `00000002.app` and the WAD
 
-Patch the WAD with [RiiConnect24's Wiimmfi Patcher](https://github.com/RiiConnect24/WiiWare-Patcher/).
+- Patch the WAD with [RiiConnect24's Wiimmfi Patcher](https://github.com/RiiConnect24/WiiWare-Patcher/).
+
+- Optionally recompress the DOL with LZ11 encoding to save NAND/SD space.
+
+## Convert the WAD to NTSC Video
+
+- Decompress the DOL using [CUE's DS decompressors](https://github.com/PeterLemon/Nintendo_DS_Compressors) (LZX)
+
+- Open the DOL in a hex editor and jump to offset `0x001691B8`
+
+- Replace the next `0x3` bytes relative to said offset (`0x418200`) with `0x480000` (this is required to bypass an exception when opening the main U8 file)
+
+- Compress the DOL
+
+- Repack the WAD
 
 This method **works on real hardware**.
 
