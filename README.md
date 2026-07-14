@@ -67,13 +67,24 @@ Wii.System.WiiSystem.addUserNameMapping("{yourdomain}");
 
 - Open the DOL in a hex editor and jump to offset `0x001691B8`
 
-- Replace the next `0x3` bytes relative to said offset (`0x418200`) with `0x480000` (this is required to bypass an exception when opening the main U8 file)
+- Replace the next `0x3` bytes relative to said offset (`0x418200`) with `0x480000` (this is required to bypass an exception when opening the main U8 file)*
+
+```asm
+lwz        r5,0x0(r3)
+subis      r0,r5,0x55aa
+cmplwi     r0,0x382d
+b          LAB_8016eeb4 ; HERE
+lis        r5,-0x7fbd
+subi       r3=>DAT_804d4570,r13
+subi       r5=>s_ARCInitHandle:_bad_archive_forma_804284e   = "ARCInitHandle: bad archive fo(-rmat)"
+li         r4,0x4a
+```
 
 - Compress the DOL
 
 - Repack the WAD
 
-This method **works on real hardware**.
+These patching methods **works on real hardware**.
 
 ## Credits
 
