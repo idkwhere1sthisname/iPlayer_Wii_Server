@@ -73,7 +73,7 @@ Wii.System.WiiSystem.addUserNameMapping("{yourdomain}");
 lwz        r5,0x0(r3)
 subis      r0,r5,0x55aa
 cmplwi     r0,0x382d
-b          LAB_8016eeb4 ; HERE
+b          LAB_8016eeb4 ; HERE (beq->b)
 lis        r5,-0x7fbd
 subi       r3=>DAT_804d4570,r13
 subi       r5=>s_ARCInitHandle:_bad_archive_forma_804284e   = "ARCInitHandle: bad archive fo(-rmat)"
