@@ -6,8 +6,6 @@ wad/**
 ssl/**
 .vs/**
 .vscode/**
-*.html
-*.fla
 BBC iPlayer Wii Flash UI/**
 *.bak
 config2.xml
