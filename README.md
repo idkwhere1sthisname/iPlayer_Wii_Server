@@ -61,27 +61,25 @@ Wii.System.WiiSystem.addUserNameMapping("{yourdomain}");
 
 ## Convert the WAD to NTSC Video
 
-- Decompress the DOL using [CUE's DS decompressors](https://github.com/PeterLemon/Nintendo_DS_Compressors) (LZX)
-
-- Open the DOL in a hex editor and jump to offset `0x001691B8`
-
-- Replace the next `0x3` bytes relative to said offset (`0x418200`) with `0x480000` (this is required to bypass an exception when opening the main U8 file)*
-
-```asm
-lwz        r5,0x0(r3)
-subis      r0,r5,0x55aa
-cmplwi     r0,0x382d
-b          LAB_8016eeb4 ; HERE (beq->b)
-lis        r5,-0x7fbd
-subi       r3=>DAT_804d4570,r13
-subi       r5=>s_ARCInitHandle:_bad_archive_forma_804284e   = "ARCInitHandle: bad archive fo(-rmat)"
-li         r4,0x4a
-```
-
-- Compress the DOL
-
+- Unpack a BBC iPlayer v258 WAD
+- Unpack `00000002.app`
+- Navigate to `/config/EU/`
+- Delete `IT`, `NL` and `DE` (those are languages that can't be set in an American console)
+- For each remaining directory (`EN`, `ES` and `FR`):
+    - Delete:
+        - `config.prog.eurgb60.pcf`
+        - `config.prog.eurgb60.wide.pcf`
+          - Both of these are just includes.
+        - `config.pal.pcf`
+        - `config.pal.wide.pcf`
+    - Rename:
+        - `config.eurgb60.pcf` to `config.ntsc.pcf`
+        - `config.eurgb60.wide.pcf` to `config.ntsc.wide.pcf`
+    - Copy:
+        - `config.ntsc.pcf` to `config.prog.ntsc.pcf`
+        - `config.ntsc.wide.pcf` to `config.prog.ntsc.wide.pcf`
+- Repack `00000002.app`
 - Repack the WAD
-
 These patching methods **works on real hardware**.
 
 ## Credits
