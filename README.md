@@ -81,7 +81,7 @@ Wii.System.WiiSystem.addUserNameMapping("{yourdomain}");
 - Repack `00000002.app`
 - Repack the WAD
 
-These patching methods **works on real hardware**.
+These patching methods **work on real hardware**.
 
 ## Credits
 
