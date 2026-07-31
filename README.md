@@ -80,6 +80,7 @@ Wii.System.WiiSystem.addUserNameMapping("{yourdomain}");
         - `config.ntsc.wide.pcf` to `config.prog.ntsc.wide.pcf`
 - Repack `00000002.app`
 - Repack the WAD
+
 These patching methods **works on real hardware**.
 
 ## Credits
